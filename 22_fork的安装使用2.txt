@@ -1,0 +1,172 @@
+
+1. 下载和安装fork
+
+   。Fork是免费软件所以直接官网下载：https://git-fork.com/
+   。安装一路点Next，不需要登陆，也不用更改、选择任何选项，直到下图点击Finish结束安装   （待验证）
+   。安装时考虑关联目录： c：\work   （待验证）   //这一步也可以在下面的“菜单 File \clone”里面设置
+
+1. 安装后也可以修改关联目录
+    。菜单\preferences\Gereral\default clone folder
+    。如，设置为  c：\work
+
+2. 在远程github中创建TEST01库
+    。打开网页github.com
+    。登录到ArongZhao
+    。点击New repository\点选 private
+    。输入新库名TEST01\点击下面的 create repository，即ok
+
+2. 進入fork，从github中下载整个目录到本地电脑
+   。菜单 File \Accounts  \Accounts  
+      。在跳出界面中的左下角，点击+号
+      。在跳出界面中，点击"github"网址按钮
+      。输入github的的邮箱账号，登录github网站
+      。登录成功后，跳出“Authorize Fork"的界面， 点击下面的”Authorize fork-dev“按钮
+      。ok，邮箱账号已添加到fork的电脑app中
+
+   。菜单 File \Accounts  \Repositories ， 下载github里面的工程TEST01  （整个目录下载）
+
+   。附另一种方法： 菜单 File \clone  ， 设置本地的目录， 如：  c：\work  （不推荐
+
+3. 本地库的建立，下载，打开，上传，关闭
+     。把本地目录添加并commit到fork里面
+     。把本地目录设置为git库：                     菜单 File \init new Repo...
+     。在fork中打开本地目录：                      点击右上角的+号，或直接双击左边的工程目录
+     。把本地目录里的所有文件添加到git库：   点击左边靠中间的”stage“  （先在左边单击选择 ”Local changes"
+     。把本地目录commit到git库：                点击左下角的commit  （先输入版本说明）
+     。把本地目录的工程关闭： 把鼠标放在右上角的+号的左边，隐藏x关闭按钮就会显示出来，点击x关闭工程
+
+4.  。生成SSH KEY  (待完善)
+     。fork菜单\config SSH keys\点击左下角的+号，输入email\点击“Generate",即生成public key
+     。打开github网页，在上面找到SSH KEY的地方 (待完善)，复制fork里面的public key 到github，即ok    (待完善)
+
+
+5. 点击上面的push上传到github服务器
+   。点击左边列表中的“All Commit”
+   。点选右边的最新的commit版本 
+   。点选下面的工具栏，点击push把当前的commit版本上传到github
+
+
+6. 删除已经commit的工程 （退回到commit之前）
+   。点击左边列表中的“All Commit”
+   。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的“Revert commit”
+
+7. checkout已经commit的工程 （用已commit的工程覆盖现在本地电脑中的文件目录）
+   。点击左边列表中的“All Commit”
+   。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的“checkout commit”
+
+8. 打开工程后，可在左边的Branches下面设置Master是否可见，也可把Master名称修改为main
+
+
+10. 创建新的分支-方法一： 在本地创建分支，然后再上传到github
+    。点击左边列表中的“All Commit”
+    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的“new branch”
+    。输入分支名称，如 aaa，再勾选“checkout after create", 即建立了本地的分支
+    。用上面”5“同样的方法，把分支aaa通过push上传到个github
+
+10. 创建新的分支-方法二： 在github创建分支，然后再checkout和track到本地目录
+    。打开github的网页
+    。進入远程库TEST01
+    。选择分支main （也可develop）
+    。在switch banmches/tags下面，输入新的分支名aaa\点击下面的”create branch bbbfrom develop", 即创建bbb分支ok
+
+10. 把github上的远程分支bbb，fetch到本地库，然后再checkout和track到本地目录
+    。在fork中，点击菜单下面的工具图标“fetch”，即可把github上的分支bbb，抓取到本地库中。
+    。在左边的列表中选择分支bbb
+    。点击左上列表中的All commits
+    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的“checkout commit”
+
+11. 切换分支，实际就是切换commit版本，跟上面10-3的操作相同
+11. 合并分支 
+    。点击左边列表中的“All Commit”
+    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的 merge into "某分支“
+11. 把本分支，变成旧分支的新基点
+    。点击左边列表中的“All Commit”
+    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的 ”rebase‘某分支’to here“
+11. 删除分支 aaa
+    。点击左边列表中的“All Commit”
+    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的 aaa\点击第二级弹出菜单中的delete
+
+
+12. 添加tag
+    。在fork的左边一栏\右键单击tag\点击”new tag“
+    。输入tag： V1.0 \写入message： adding the 222 file
+    。勾选下面的push，上传到github\点击create
+
+12. 把本地的tag上传到github
+     。右键单击tag\push 'V1.0' to 'origin'
+
+12. 删除tag
+     。右键单击tag
+     。点击 delete tag
+     。勾选delete tag from remote repo...  \delete
+
+
+=======================多人上传的处理=======================================
+
+1.  当小甲在远程上传了新的目录，这边上传新的版本（这里仅添加新的目录）的操作
+     。先点击pull，会把小甲的新目录下载到c:\workspace
+     。然后拷贝進自己的新目录
+     。然后再 commit自己的新目录
+     。再push
+ 
+
+2.  自己修改了1个文件 （仅用于测试，允许删除或恢复回原来的文件） ，小甲在远程新上传了文件，这边下载的操作
+     。先把这边修改了的文件删除（或移走）
+     。按pull
+     。ok
+
+
+3. 用pull把最新的版本下载下来后，移走其中一个文件（或改动），再checkout最新版本时，出现错误提示
+    。pull最新版本前， 把整个旧版本的目录，备份到其他地方 
+    。pull最新版本，改动后
+    。如果想回到最新版本未改动状态， 可删除最新版本的整个目录，再拷贝回旧版本的整个目录
+    。然后再checkout最新版本
+
+
+
+
+
+
+
+
+
+
+     
+=============参考=====================
+
+生成 SSH Key
+要生成SSH Key，请按照以下步骤操作：
+
+打开终端或命令提示符窗口。12
+输入命令`ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`，其中`your_email@example.com`需要替换为你的邮箱地址。12345
+按照提示输入文件名和密码，或者直接按回车键使用默认值。
+生成成功后，会在用户主目录下的`.ssh`文件夹中生成`id_rsa`和`id_rsa.pub`两个文件，其中`id_rsa`是私钥，`id_rsa.pub`是公钥。123456
+此外，要将SSH Key添加到Git仓库，请按照以下步骤操作：
+
+打开Git仓库的网页界面，找到“Settings”或“配置”选项。
+点击“SSH and GPG keys”或“SSH和GPG密钥”选项。
+点击“New SSH Key”或“新增SSH密钥”按钮。
+将公钥文件中的内容复制到“Key”或“密钥”文本框中。
+点击“Add SSH Key”或“添加SSH密钥”按钮。
+收起
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

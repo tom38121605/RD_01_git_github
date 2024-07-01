@@ -1,0 +1,47 @@
+
+
+REPO_FOLDER      =    C:\workspace
+PROTO_FOLDER    =   C:\workspace\ommo_build_common\ommo_proto
+PROTO_FILE          =   C:\workspace\ommo_build_common\ommo_proto\ommo_fw.proto
+OUTPUT_FOLDER   =  C:\workspace\ommo_nrf\nRF5_SDK_17.1.0_ddde560\components\ommo
+TEMP_FOLDER       =  C:\workspace\ommo_nrf\flash_files\temp
+
+
+xcopy /L /D /Y    C:\workspace\ommo_build_common\ommo_proto\ommo_fw.proto
+                         C:\workspace\ommo_nrf\nRF5_SDK_17.1.0_ddde560\components\ommo\ommo_fw.pb.c      | findstr /B /C:"1 "
+
+if %errorlevel%==0
+
+	%REPO_FOLDER%\ommo_nrf\nanopb-0.4.6-windows-x86\generator-bin\nanopb_generator.exe  -D  %OUTPUT_FOLDER% 
+                 -I      %PROTO_FOLDER%      %PROTO_FILE%
+ 
+ 
+    mkdir %TEMP_FOLDER%    // Ìí¼ÓÄ¿Â¼   C:\workspace\ommo_nrf\flash_files\temp
+ 
+
+
+output_file                       =     C:\workspace\ommo_nrf\flash_files\temp\git_describe.h
+git_describe_header_file    =    C:\workspace\ommo_nrf\nRF5_SDK_17.1.0_ddde560\components\ommo\git_describe.h
+
+ 
+for /f "tokens=* usebackq" %%F in (`git describe --dirty`) do  
+    set "VERSION=%%F"
+ 
+
+if errorlevel 1 
+    £»
+else 
+    set VERSION=!VERSION:dirty=%DATE:~-2%%DATE:~4,2%%DATE:~7,2%!
+ 
+
+
+
+
+
+
+
+
+
+
+
+
