@@ -100,6 +100,12 @@
      。点击 delete tag
      。勾选delete tag from remote repo...  \delete
 
+13. 设置commit后自动push上传
+     。菜单\preferences\Gereral
+     。勾选下面的“push automatically on commit”
+
+
+
 
 =======================多人上传的处理=======================================
 
