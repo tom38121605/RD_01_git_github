@@ -104,6 +104,13 @@
      。菜单\preferences\Gereral
      。勾选下面的“push automatically on commit”
 
+13. 在fork中查看关联的git版本, 并修改git的用户名和关联邮件
+     。菜单\preferences\Git
+     。Git Instance:   选择版本： 2.45.2.windows.1 - Fork git instance
+     。Global User Information
+           用户名： chunrong
+           mail：    OOchunrong.zhao@ommo.co
+
 
 
 
