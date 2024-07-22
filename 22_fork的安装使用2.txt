@@ -113,6 +113,16 @@
 
 
 
+=========================遇到的问题处理=======================================
+
+1. 把一个库在硬盘上删除后，再重新从Acounts里面clone下载下来，遇到下面的问题
+    fatal: unable to access 'https://github.com/tom38121605/RD_00_data_uer.git/': Failed to connect to github.com port 443 after 21082 ms: Couldn't connect to server
+分析： 在fork里面，该目录显示为黄色感叹号
+解决： 在fork里面，右键remove该目录，再重新clone下载， 即ok    （--也可能是改网址的网络信号不好）
+
+
+
+
 
 =======================多人上传的处理=======================================
 
