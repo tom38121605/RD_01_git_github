@@ -63,11 +63,11 @@
     。输入分支名称，如 aaa，再勾选“checkout after create", 即建立了本地的分支 （Branchs\aaa）  //也可不勾选“checkout after create"，创建后再独立checkout
     。用上面”5“同样的方法，把分支aaa通过push上传到github
 
-10-2. 创建新的分支-方法二： 在github创建分支，然后再checkout和track到本地目录
+10-2. 创建新的分支-方法二： 在远程github创建分支，然后再checkout和track到本地目录
     。打开github的网页
     。進入远程库TEST01
     。选择分支main （也可develop）
-    。在switch banmches/tags下面，输入新的分支名aaa\点击下面的”create branch bbb from develop", 即创建bbb分支ok
+    。在switch branches/tags下面，输入新的分支名aaa\点击下面的”create branch bbb from develop", 即创建bbb分支ok
 
 10-3. 把github上的远程分支bbb，fetch到本地库，然后再checkout和track到本地目录
     。在fork中，点击菜单下面的工具图标“fetch”，即可把github上的分支bbb，抓取到本地库中（Remotes\origin） 
@@ -125,6 +125,17 @@
 解决： 在fork里面，右键remove该目录，再重新clone下载， 即ok    （--也可能是改网址的网络信号不好）
 
 
+2. 在TEST01库中，点pull时，跳出的Remote和Branch都是空白的
+分析：TEST01只有我一个人在用
+解决： ？
+
+3. 从develop 分支的一个commit列表，checkout一个commit， 添加一个file04，commit版本：add file04.
+    push develop --> 远程的origin/main，出现下面提示:   (另： push main -- main， push develop -- develop， 文件都无变化)
+     Updates were rejected because a pushed branch tip is behind its remote counterpart. 
+
+     If you want to integrate the remote changes, use 'git pull' before pushing again.
+分析： 当前mian分支有file123，develop分支有12，把developcheckout，添加一个file04
+解决： ？
 
 
 
