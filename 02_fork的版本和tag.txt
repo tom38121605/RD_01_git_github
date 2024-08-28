@@ -1,5 +1,8 @@
  
 
+tag 和版本的区别：   ？   
+
+
 12. 添加tag
     。选中一个commit\右键\点击”new tag“
     。输入tag： V1.0 \写入message： adding the 222 file
