@@ -1,0 +1,40 @@
+ 
+
+12. 添加tag
+    。选中一个commit\右键\点击”new tag“
+    。输入tag： V1.0 \写入message： adding the 222 file
+    。勾选下面的push，上传到github\点击create
+
+12. 把本地的tag上传到github
+     。单击Tags\tag -- 右键 --  push 'V1.0' to 'origin'
+
+12. 删除tag
+     。单击Tags\tag
+     。右键 -- 点击 delete tag
+     。勾选delete tag from remote repo...  \delete
+  
+
+
+
+
+ 
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

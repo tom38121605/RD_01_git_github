@@ -1,0 +1,58 @@
+ 
+
+10-1. 创建新的分支-方法一： 在本地创建分支，然后再上传到github
+    。点击左边列表中的“All Commit”
+    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的“new branch”
+    。输入分支名称，如 aaa，再勾选“checkout after create", 即建立了本地的分支 （Branchs\aaa）  //也可不勾选“checkout after create"，创建后再独立checkout
+    。把分支aaa通过push上传到github
+
+10-2. 创建新的分支-方法二： 在远程github创建分支，然后再checkout和track到本地目录
+    。打开github的网页
+    。進入远程库TEST01
+    。选择分支main （也可develop）
+    。在switch branches/tags下面，输入新的分支名aaa\点击下面的”create branch bbb from develop", 即创建bbb分支ok
+
+10-3. 把github上的远程分支bbb，fetch到本地库，然后再checkout和track到本地目录
+    。在fork中，点击菜单下面的工具图标“fetch”，即可把github上的分支bbb，抓取到本地库中（Remotes\origin） 
+    。双击origin\bbb，在跳出界面中， 点击track，加入到本地分支列表中 （Branchs\bbb）
+    。在左边的列表中选择分支bbb
+    。点击左上列表中的All commits
+    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的“checkout commit”
+
+10-4. 删除分支  
+    。方法1： 点击 origin\bbb -- 右键  -- delete 'origin/bbb'  -- 点击 delete   （同时删除本地和远程）
+    。方法2： 点击 Branchs\bbb -- 右键  -- delete 'bbb'  -- 勾选“also delete remote branch"  -- 点击 delete   （只能删除远程）
+
+10-5. 切换分支，实际就是切换commit版本，跟上面10-3的操作相同
+
+
+11. 合并分支 (待测试验证)
+    。点击左边列表中的“All Commit”
+    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的 merge into "某分支“
+11. 把本分支，变成旧分支的新基点
+    。点击左边列表中的“All Commit”
+    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的 ”rebase‘某分支’to here“
+
+
+
+ 
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

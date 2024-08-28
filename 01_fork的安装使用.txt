@@ -57,52 +57,6 @@
 8. 打开工程后，可在左边的Branches下面设置Master是否可见，也可把Master名称修改为main
 
 
-10-1. 创建新的分支-方法一： 在本地创建分支，然后再上传到github
-    。点击左边列表中的“All Commit”
-    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的“new branch”
-    。输入分支名称，如 aaa，再勾选“checkout after create", 即建立了本地的分支 （Branchs\aaa）  //也可不勾选“checkout after create"，创建后再独立checkout
-    。用上面”5“同样的方法，把分支aaa通过push上传到github
-
-10-2. 创建新的分支-方法二： 在远程github创建分支，然后再checkout和track到本地目录
-    。打开github的网页
-    。進入远程库TEST01
-    。选择分支main （也可develop）
-    。在switch branches/tags下面，输入新的分支名aaa\点击下面的”create branch bbb from develop", 即创建bbb分支ok
-
-10-3. 把github上的远程分支bbb，fetch到本地库，然后再checkout和track到本地目录
-    。在fork中，点击菜单下面的工具图标“fetch”，即可把github上的分支bbb，抓取到本地库中（Remotes\origin） 
-    。双击origin\bbb，在跳出界面中， 点击track，加入到本地分支列表中 （Branchs\bbb）
-    。在左边的列表中选择分支bbb
-    。点击左上列表中的All commits
-    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的“checkout commit”
-
-10-4. 删除分支  
-    。方法1： 点击 origin\bbb -- 右键  -- delete 'origin/bbb'  -- 点击 delete   （同时删除本地和远程）
-    。方法2： 点击 Branchs\bbb -- 右键  -- delete 'bbb'  -- 勾选“also delete remote branch"  -- 点击 delete   （只能删除远程）
-
-10-5. 切换分支，实际就是切换commit版本，跟上面10-3的操作相同
-
-
-11. 合并分支 (待测试验证)
-    。点击左边列表中的“All Commit”
-    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的 merge into "某分支“
-11. 把本分支，变成旧分支的新基点
-    。点击左边列表中的“All Commit”
-    。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的 ”rebase‘某分支’to here“
-
-
-12. 添加tag
-    。选中一个commit\右键\点击”new tag“
-    。输入tag： V1.0 \写入message： adding the 222 file
-    。勾选下面的push，上传到github\点击create
-
-12. 把本地的tag上传到github
-     。单击Tags\tag -- 右键 --  push 'V1.0' to 'origin'
-
-12. 删除tag
-     。单击Tags\tag
-     。右键 -- 点击 delete tag
-     。勾选delete tag from remote repo...  \delete
 
 13. 设置commit后自动push上传
      。菜单\preferences\Gereral
@@ -114,6 +68,9 @@
      。Global User Information
            用户名： chunrong
            mail：    OOchunrong.zhao@ommo.co
+
+14： All commits列表中的commit中的SHA
+       。SHA 相当于一个每次提交的版本号
 
 
 
@@ -127,15 +84,23 @@
 
 2. 在TEST01库中，点pull时，跳出的Remote和Branch都是空白的
 分析：TEST01只有我一个人在用
-解决： ？
+解决： ？   （或在本地删除TEST01库，再从新clone一遍）
 
-3. 从develop 分支的一个commit列表，checkout一个commit， 添加一个file04，commit版本：add file04.
+
+3. 从develop 分支的一个commit列表，checkout一个commit， 添加一个file4，commit版本：add file4.
     push develop --> 远程的origin/main，出现下面提示:   (另： push main -- main， push develop -- develop， 文件都无变化)
+
      Updates were rejected because a pushed branch tip is behind its remote counterpart. 
 
      If you want to integrate the remote changes, use 'git pull' before pushing again.
-分析： 当前mian分支有file123，develop分支有12，把developcheckout，添加一个file04
+
+分析： 当前mian分支有file123，develop分支有12，把developcheckout，添加一个file4
 解决： ？
+
+分析2： 因远程的main是file123， 现把本地develop的file124上传上去，肯定会出现矛盾和错误
+分析3： push develop -- develop， 文件都无变化  -->  因本地devolop是file124，远程是file12， 固应有变化，把远程从main分支切换到develop试试看
+
+
 
 
 
