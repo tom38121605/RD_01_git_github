@@ -4,7 +4,7 @@
     。点击左边列表中的“All Commit”
     。点击右边的最新的commit版本 \ 右键\ 点击弹出菜单中的“new branch”
     。输入分支名称，如 aaa，再勾选“checkout after create", 即建立了本地的分支 （Branchs\aaa）  //也可不勾选“checkout after create"，创建后再独立checkout
-    。用上面”5“同样的方法，把分支aaa通过push上传到github
+    。把分支aaa通过push上传到github
 
 10-2. 创建新的分支-方法二： 在远程github创建分支，然后再checkout和track到本地目录
     。打开github的网页
