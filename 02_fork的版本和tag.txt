@@ -1,6 +1,17 @@
  
 
-tag ºÍ°æ±¾µÄÇø±ð£º tag¾ÍÊÇ°æ±¾£¬ µ«ÔÚgithubÉÏ»¹ÓÐÒ»¸örelease£¬ ¿ÉËãÕýÊ½·¢²¼µÄ°æ±¾   
+1. tag ºÍ°æ±¾µÄÇø±ð£º tag¾ÍÊÇ°æ±¾£¬ µ«ÔÚgithubÉÏ»¹ÓÐÒ»¸örelease£¬ ¿ÉËãÕýÊ½·¢²¼µÄ°æ±¾   
+
+2. ¹ØÓÚ±¾µØtagÊÇ·ñ»áËæ²Ö¿â£¬ÍÆËÍµ½Ô¶³Ì
+
+        ÔÚGitÖÐ£¬µ±ÄãÊ¹ÓÃgit pushÃüÁîÍÆËÍ±¾µØ²Ö¿âµ½Ô¶³Ì²Ö¿âÊ±£¬±êÇ©²¢²»»á±»×Ô¶¯ÍÆËÍ¡£ÕâÊÇÒòÎª±êÇ©ºÍ·ÖÖ§µÄ´¦Àí·½Ê½ÂÔÓÐ²»Í¬¡£
+        µ±Äã´ÓÔ¶³Ì²Ö¿âÍ¬²½ÄÚÈÝµ½±¾µØ£¨Í¨¹ýclone»òpullÃüÁî£©Ê±£¬Ô¶³Ì²Ö¿âµÄ±êÇ©»á×Ô¶¯Í¬²½µ½±¾µØ²Ö¿â¡£
+
+        µ«ÊÇ£¬Èç¹ûÄãÏë½«±¾µØµÄ±êÇ©·ÖÏíµ½Ô¶³Ì²Ö¿â£¬ÐèÒªÊ¹ÓÃµ¥¶ÀµÄGitÃüÁî½øÐÐÍÆËÍ¡£
+        ¾ßÌåÀ´Ëµ
+        ÀýÈç£¬Èç¹ûÄãÓÐÒ»¸öÃûÎªv1.0µÄ±êÇ©£¬ÄãÓ¦¸ÃÔËÐÐgit push origin v1.0 ÃüÁî¡£
+        ´ËÍâ£¬Èç¹ûÄãÏëÒ»´ÎÐÔÍÆËÍËùÓÐ±¾µØ±êÇ©µ½Ô¶³Ì²Ö¿â£¬¿ÉÒÔÊ¹ÓÃgit push --tagsÃüÁî¡£ 
+
 
 
 12. Ìí¼Ótag
@@ -16,6 +27,7 @@ tag ºÍ°æ±¾µÄÇø±ð£º tag¾ÍÊÇ°æ±¾£¬ µ«ÔÚgithubÉÏ»¹ÓÐÒ»¸örelease£¬ ¿ÉËãÕýÊ½·¢²¼µÄ°æ±
      ¡£ÓÒ¼ü -- µã»÷ delete tag
      ¡£¹´Ñ¡delete tag from remote repo...  \delete
   
+
 
 
 
