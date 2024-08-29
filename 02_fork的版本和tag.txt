@@ -1,6 +1,6 @@
  
 
-tag 和版本的区别：   ？   
+tag 和版本的区别： tag就是版本， 但在github上还有一个release， 可算正式发布的版本   
 
 
 12. 添加tag
@@ -16,6 +16,8 @@ tag 和版本的区别：   ？
      。右键 -- 点击 delete tag
      。勾选delete tag from remote repo...  \delete
   
+
+
 
 
 
