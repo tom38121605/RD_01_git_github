@@ -6,7 +6,7 @@
     。输入分支名称，如 aaa，再勾选“checkout after create", 即建立了本地的分支 （Branchs\aaa）  //也可不勾选“checkout after create"，创建后再独立checkout
     。把分支aaa通过push上传到github
 
-10-2. 创建新的分支-方法二： 在远程github创建分支，然后再checkout和track到本地目录
+10-2. 创建新的分支-方法二： 在远程github创建分支 
     。打开github的网页
     。進入远程库TEST01
     。选择分支main （也可develop）
