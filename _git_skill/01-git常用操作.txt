@@ -1,0 +1,142 @@
+
+疑问1： git每次push时，都需要输入用户名和密码
+分析：   克隆一个仓库时，有两种URL可以选择，一种是HTTPS URLs（任何场景下都可以工作，推荐方式），另一种是SSH URLs。
+答：      在push前，运行下面一行，意思是把输入的密码保存在一个文本文件里，以后push就不用再输入了。
+            git config --global credential.helper store                             //委托credential.helper（凭证助手）来记住密码
+            git config --global credential.helper 'cache --timeout 7200'    // 这里还可以设置有效时间为7200秒，两个小时。
+            凭证密码文件通常保存在文件:  C:\Users\GS\.git-credentials
+
+
+0. Git 全局设置:
+    git config --global user.name "tom38121605"
+    git config --global user.email "13538121605@139.com"
+    git config --global credential.helper store
+
+
+1. 创建远程库  test
+   这个在gitee或github上操作，这里以gitee举例  （具体过程很简单，这里略过）
+
+2. 创建本地库   e:\gitku\test， 添加一个01.txt文件，然后做一次commit
+
+   cd  e:\gitku\test
+   git init 
+   git add 01.txt                               //先拷贝一个01.txt文件到改目录
+   git commit -m "first commit"
+
+   git add .                           //添加多个文件到暂存区
+   git add -all                       // 添加多个文件到暂存区
+
+3. 用git log 和git status，查看以前的操作结果，及当前的状态
+
+    git log
+    git status
+
+
+4. 把本地库关联到远程库，并把本地内容推送到远程
+
+   git remote add gitee https://gitee.com/tom38121605/sample_mcu_01_n76e003.git
+   git push -u gitee "master"            //u仅在第一次push时使用，以后就不需要了
+
+   再到gitee网站上查看，就会看到sample_mcu_01_n76e003.git库里，有了一个01.txt文件
+
+5. 用git diff，来查看文件的修改
+
+    git diff 01.txt
+
+6. 退回到以前的版本
+
+   git reset  --hard HEAD~1    //退回到上一个版本
+   git reset  --hard 版本号       //退回到指定版本
+   git reflog                           //看本地库里面的版本号 （版本号只取了前面的7位）  //实际只输入前面4-6位就可以了
+
+7. git checkout  --01.txt   调出暂存库或特定版本库里面的的内容到工作区  ，“--” 一定要加，没有的话变成创建分支了
+
+    git checkout --01.txt     //有下面两层意思
+        01.txt自动修改后，还没有放到暂存区，使用 撤销修改就回到和版本库一模一样的状态。
+        另外一种是01.txt已经放入暂存区了，接着又作了修改，撤销修改就回到添加暂存区后的状态。
+
+
+8. git clone，从远程库clone到本地         （先跳过）
+
+   git clone    [仓库地址]                    //保存在当前目录  
+   git clone [仓库地址] [本地目录名]    //保存在指定目录  
+
+9. 创建并切换到分支
+
+　　git branch dev              //创建dev分支  （应从当前分支master创建出一个一模一样的另一个分支dev）
+　　git checkout dev           //切换到dev分支
+
+　　git checkout -b dev      //创建dev分支，并切换到dev分支  （相当于把上面2句合并）      
+      git branch                   //查看分支，会列出所有的分支，当前分支前面会添加一个星号
+
+10. cat 01.txt                     //查看01.txt的内容
+
+11. 合并分支
+   
+     git merge dev                    //把dev分支合并到当前分支master上， 删除dev分支信息
+     git merge --no-off dev        //把dev分支合并到当前分支master上， 保留dev分支信息
+
+12. 远程库操作
+
+　　git remote               //查看远程库的信息
+　　git remote –v           //查看远程库的详细信息
+
+
+
+
+=========================待整理==============================
+
+1) 远程仓库相关命令
+检出仓库：$ git clone git://github.com/xx/xx.git
+查看远程仓库：$ git remote -v
+添加远程仓库：$ git remote add [name] [url]
+删除远程仓库：$ git remote rm [name]
+修改远程仓库：$ git remote set-url --push[name][newUrl]
+拉取远程仓库：$ git pull [remoteName] [localBranchName]
+推送远程仓库：$ git push [remoteName] [localBranchName]
+ 
+2）分支(branch)操作相关命令
+查看本地分支：$ git branch
+查看远程分支：$ git branch -r
+创建本地分支：$ git branch [name] ----注意新分支创建后不会自动切换为当前分支
+切换分支：$ git checkout [name]
+创建新分支并立即切换到新分支：$ git checkout -b [name]
+删除分支：$ git branch -d [name] ---- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项
+合并分支：$ git merge [name] ----将名称为[name]的分支与当前分支合并
+创建远程分支(本地分支push到远程)：$ git push origin [name]
+删除远程分支：$ git push origin :heads/[name]
+
+$ git push origin test:master         // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
+$ git push origin test:test              // 提交本地test分支作为远程的test分支
+
+$ git push origin :test              // 刚提交到远程的test将被删除，但是本地还会保存的，不用担心
+
+3）版本(tag)操作相关命令
+查看版本：$ git tag
+创建版本：$ git tag [name]
+删除版本：$ git tag -d [name]
+查看远程版本：$ git tag -r
+创建远程版本(本地版本push到远程)：$ git push origin [name]
+删除远程版本：$ git push origin :refs/tags/[name]
+ 
+4) 子模块(submodule)相关操作命令
+添加子模块：$ git submodule add [url] [path]
+如：$ git submodule add git://github.com/soberh/ui-libs.git src/main/webapp/ui-libs
+初始化子模块：$ git submodule init ----只在首次检出仓库时运行一次就行
+更新子模块：$ git submodule update ----每次更新或切换分支后都需要运行一下
+删除子模块：（分4步走哦）
+1)$ git rm --cached [path]
+2) 编辑“.gitmodules”文件，将子模块的相关配置节点删除掉
+3) 编辑“.git/config”文件，将子模块的相关配置节点删除掉
+4) 手动删除子模块残留的目录
+
+
+
+=========================待整理2==============================
+
+
+
+
+
+
+

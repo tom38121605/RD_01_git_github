@@ -1,5 +1,19 @@
  
 
+1. tag 和版本的区别： tag就是版本， 但在github上还有一个release， 可算正式发布的版本   
+
+2. 关于本地tag是否会随仓库，推送到远程
+
+        在Git中，当你使用git push命令推送本地仓库到远程仓库时，标签并不会被自动推送。这是因为标签和分支的处理方式略有不同。
+        当你从远程仓库同步内容到本地（通过clone或pull命令）时，远程仓库的标签会自动同步到本地仓库。
+
+        但是，如果你想将本地的标签分享到远程仓库，需要使用单独的Git命令进行推送。
+        具体来说
+        例如，如果你有一个名为v1.0的标签，你应该运行git push origin v1.0 命令。
+        此外，如果你想一次性推送所有本地标签到远程仓库，可以使用git push --tags命令。 
+
+
+
 12. 添加tag
     。选中一个commit\右键\点击”new tag“
     。输入tag： V1.0 \写入message： adding the 222 file
@@ -13,6 +27,9 @@
      。右键 -- 点击 delete tag
      。勾选delete tag from remote repo...  \delete
   
+
+
+
 
 
 
