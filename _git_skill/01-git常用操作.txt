@@ -82,6 +82,12 @@
 　　git remote –v           //查看远程库的详细信息
 
 
+13. commit的说明写错了，在push前重新修改
+
+    git commit --amend -m "新的提交说明"
+    git push origin <your-branch-name> --force
+
+
 
 
 =========================待整理==============================
