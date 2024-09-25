@@ -1,0 +1,38 @@
+
+1. 已有仓库，创建分支
+    git branch  develop                          //仅创建分支 （ 应从当前分支main创建出一个一模一样的另一个分支dev）
+    git checkout develop                        // 切换分支
+    git branch checkout -b develop         //创建并切换到分支 （等价于上面两句）
+
+2. 同时创建仓库和分支
+   git init -b develop       //这种方式创建的分支只有一个develop，没有main分支
+
+3. 分支查看   （查看当前分支）
+
+   方法一： 直接看命令行的最后面括号里的分支  
+   GS@Lenovo-PC MINGW64 /e/GIT-REPO/TEST04 (develop)   //括号里的分支 develop是当前分支
+
+
+   方法二：
+   git branch   //查看分支，会列出所有的分支，当前分支前面会添加一个星号   （好像要commit之后才能查看到）
+
+4. 删除分支
+   git branch -D develop
+
+5. 重命名
+   git branch -m  develop  dev2     //把develop 改名为dev2
+
+6. 分支合并
+     git merge develop                    //把develop分支合并到当前分支master上， 删除dev分支信息
+     git merge --no-off develop        //把develop分支合并到当前分支master上， 保留dev分支信息
+
+
+
+
+
+        
+
+
+
+
+

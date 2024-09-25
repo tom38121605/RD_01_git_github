@@ -7,10 +7,10 @@
             凭证密码文件通常保存在文件:  C:\Users\GS\.git-credentials
 
 
-0. Git 全局设置:
+0. Git 全局设置:   （解决git每次push时，都需要输入用户名和密码的问题）
     git config --global user.name "tom38121605"
     git config --global user.email "13538121605@139.com"
-    git config --global credential.helper store
+    git config --global credential.helper store                             
 
 
 1. 创建远程库  test
@@ -25,6 +25,8 @@
 
    git add .                           //添加多个文件到暂存区
    git add -all                       // 添加多个文件到暂存区
+
+    git rm --cached .             //取消添加    （待测试验证）
 
 3. 用git log 和git status，查看以前的操作结果，及当前的状态
 
@@ -80,6 +82,12 @@
 
 　　git remote               //查看远程库的信息
 　　git remote –v           //查看远程库的详细信息
+
+
+13. commit的说明写错了，在push前重新修改
+
+    git commit --amend -m "新的提交说明"
+    git push origin <your-branch-name> --force
 
 
 
