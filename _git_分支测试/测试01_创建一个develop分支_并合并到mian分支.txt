@@ -1,0 +1,40 @@
+
+测试目地：  
+   。在车创建develop， 在兰可看到main和develop两条分支的走向
+   。在车只能看到develop一条分支的走向，但可以切换（退回）到main分支
+   。在兰合并develop到面分支
+
+
+1. 车，在github网站上新建一个仓库TEST01
+1. 车，添加一个文件 01.txt
+1. 车，commit， push main      （first commit）
+
+1. 车， 修改01.txt
+1. 车，commit， push main   （che-1）
+
+2. 兰， clone TEST01仓库
+2. 兰， 添加 lan-01.txt
+2. 兰，commit， push main  （lan-1）
+
+3. pull main，从main上创建一个分支develop
+3. 车，添加一个文件 02.txt
+3. 车，commit， push develop    （che-2）
+
+4. 兰， pull main
+4. 兰， 添加 lan-02.txt
+4. 兰，commit， push main  （lan-2）
+效果： 会看到develop和main两条树杈向上发展
+
+5. 车，pull develop
+5. 车， 添加 03.txt
+5. 车， commit， push develop    （che-3）
+效果： 只看到develop一条树杈向上发展
+
+6. 兰， pull main
+6. 兰， 合并develop到main测试
+6. 兰， push main  （lan-3）测试
+
+
+
+
+
