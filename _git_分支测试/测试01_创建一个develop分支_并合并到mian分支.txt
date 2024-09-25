@@ -30,7 +30,9 @@
 5. 车， commit， push develop    （che-3）
 效果： 只看到develop一条树杈向上发展
 
-6. 兰， pull main
+6. 兰， pull main （发现 不能pull，只跳出两个空框）
+6. 兰， checkout 远程的develop分支
+6. 兰，git branch -a  
 6. 兰， 合并develop到main测试
 6. 兰， push main  （lan-3）测试
 

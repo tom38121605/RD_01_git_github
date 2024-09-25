@@ -12,9 +12,9 @@
    方法一： 直接看命令行的最后面括号里的分支  
    GS@Lenovo-PC MINGW64 /e/GIT-REPO/TEST04 (develop)   //括号里的分支 develop是当前分支
 
-
    方法二：
-   git branch   //查看分支，会列出所有的分支，当前分支前面会添加一个星号   （好像要commit之后才能查看到）
+   git branch        //查看本地分支，会列出所有的分支，当前分支前面会添加一个星号   （好像要commit之后才能查看到）
+   git branch -a    //查看本地和远程分支
 
 4. 删除分支
    git branch -D develop
