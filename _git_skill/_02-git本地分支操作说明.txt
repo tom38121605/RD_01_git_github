@@ -29,8 +29,42 @@
 
 
 
+20. 关于游离分支
+     。用git branch -a查看分支时，出现下面的分支信息
+       * (HEAD detached from 4774b6a69)
 
-        
+     。当使用 git checkout < branch_name> 切换分支时，HEAD 会移动到指定分支
+     。如果使用的是 git checkout < commit id>，即切换到指定的某一次提交，HEAD 就会处于 detached 状态（游离状态）。
+
+20. 游离分支的弊端
+     。弊端就是：在这个基础上的提交会新开一个匿名分支！
+
+20. 解决方法
+
+     方法一：  （当不考虑游离分支就是dev1分支的最新commit时，可用下面的方法解决）
+         。在fork上，点击一个分支，如dev1，然后checkout
+
+     方法二：  创建临时分支temp，保存游离分支的修改；再把temp 合并到dev1分支
+         。从游离分支的commit处，创建temp分支
+         。check out 要用到的dev1分支
+         。合并temp分支到dev1  
+         。删除temp分支
+
+      具体解决操作：
+      git branch -v 查看当前领先多少 
+      4449a91 指向的是 dev1 的最后一次提交
+      新建一个 temp 分支，把当前提交的代码放到整个分支 
+      checkout 出要回到的那个分支，这里是 dev1 
+      然后 merge 刚才创建的临时分支，把那些代码拿回来 
+      git status 查看下合并结果，有冲突就解决
+      合并 OK 后就提交到远端 
+      删除刚才创建的临时分支  
+
+      git branch temp
+      git checkout dev1
+      git merge temp
+      git branch -d temp     
+
 
 
 
