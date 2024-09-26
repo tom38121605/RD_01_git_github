@@ -5,12 +5,15 @@
    。在兰合并develop到面分支
 
 
-1. 车，在github网站上新建一个仓库TEST01
-1. 车，添加一个文件 01.txt
-1. 车，commit， push main      （first commit）
+ok1. 车，在github网站上新建一个仓库TEST01           
+ok1. 车，用fork软件，clone到车的本地                      
+ok1. 车，添加一个文件 first.txt                    
+ok1. 车，commit， （first commit）                    
+ok1. 车，push main                          
+ok1. 车，git branch -a                       
 
-1. 车， 修改01.txt
-1. 车，commit， push main   （che-1）
+ok1. 车， 添加01.txt
+ok1. 车，commit， push main   （che-1）
 
 2. 兰， clone TEST01仓库
 2. 兰， 添加 lan-01.txt
