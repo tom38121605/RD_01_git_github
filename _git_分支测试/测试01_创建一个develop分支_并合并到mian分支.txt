@@ -27,15 +27,15 @@ ok3. 从main上创建一个分支develop, 并checkout
 ok3. 车，添加一个文件 02b.txt
 ok3. 车，commit， push develop    （che-2b）
 
-4. 兰， pull main
-4. 兰， 添加 lan-02.txt
-4. 兰，commit， push main  （lan-2）              注意： 查看远程是否为main
-效果： 会看到develop和main两条树杈向上发展
+ok4. 兰， pull main
+ok4. 兰， 添加 lan-02.txt
+ok4. 兰，commit， push main  （lan-2）              注意： 查看远程是否为main
+ok效果： 会看到develop和main两条树杈向上发展  //当前，main分支在最里面的1号位分支
 
-5. 车，pull develop
-5. 车， 添加 03.txt
-5. 车， commit， push develop    （che-3）
-效果： 只看到develop一条树杈向上发展
+ok5. 车，pull develop
+ok5. 车， 添加 03.txt
+ok5. 车， commit， push develop    （che-3）
+ok效果：  会看到develop和main两条树杈向上发展  //当前，develop分支在最里面的1号位分支
 
 6. 兰， pull main （发现 不能pull，只跳出两个空框）
 6. 兰， checkout 远程的develop分支
