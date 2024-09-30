@@ -37,11 +37,22 @@ ok5. 车， 添加 03.txt
 ok5. 车， commit， push develop    （che-3）
 ok效果：  会看到develop和main两条树杈向上发展  //当前，develop分支在最里面的1号位分支
 
-6. 兰， pull main （发现 不能pull，只跳出两个空框）
-6. 兰， checkout 远程的develop分支
-6. 兰，git branch -a  
-6. 兰， 合并develop到main测试
-6. 兰， push main  （lan-3）测试
+ok6. 兰， pull main
+ok6. 兰， 添加 lan-03.txt
+ok6. 兰，commit， push main  （lan-3）              注意： 查看远程是否为main   (default)orgin\main
+ok效果： 会看到develop和main两条树杈向上发展  //当前，main分支在最里面的1号位分支
+
+ok7. 车，pull develop           // (orgin) orgin/develop
+ok7. 车， 添加 04.txt
+ok7. 车， commit， push develop    （che-4）      // (default) orgin/develop
+ok效果：  会看到develop和main两条树杈向上发展  //当前，develop分支在最里面的1号位分支
+
+8. 兰， pull main （发现 不能pull，只跳出两个空框）
+8. 兰， checkout 远程的develop分支              
+8. 兰，查看 git branch -a  
+8. 兰， 合并develop到main测试
+
+8. 兰， push main  （lan-4）测试
 
 
 
