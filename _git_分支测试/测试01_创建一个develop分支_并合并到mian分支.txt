@@ -44,8 +44,8 @@ okĞ§¹û£º »á¿´µ½developºÍmainÁ½ÌõÊ÷è¾ÏòÉÏ·¢Õ¹  //µ±Ç°£¬main·ÖÖ§ÔÚ×îÀïÃæµÄ1ºÅÎ»·ÖÖ
 
 ok7. ³µ£¬pull develop           // (orgin) orgin/develop
 ok7. ³µ£¬ Ìí¼Ó 04.txt
-ok7. ³µ£¬ commit£¬ push develop    £¨che-4£©      // (default) orgin/develop
-okĞ§¹û£º  »á¿´µ½developºÍmainÁ½ÌõÊ÷è¾ÏòÉÏ·¢Õ¹  //µ±Ç°£¬develop·ÖÖ§ÔÚ×îÀïÃæµÄ1ºÅÎ»·ÖÖ§
+ok7. ³µ£¬ commit£¬ push develop    £¨che-4£©        // (default) orgin/develop
+okĞ§¹û£º  »á¿´µ½developºÍmainÁ½ÌõÊ÷è¾ÏòÉÏ·¢Õ¹     //µ±Ç°£¬develop·ÖÖ§ÔÚ×îÀïÃæµÄ1ºÅÎ»·ÖÖ§
 
 8. À¼£¬ pull main £¨·¢ÏÖ ²»ÄÜpull£¬Ö»Ìø³öÁ½¸ö¿Õ¿ò£©
 8. À¼£¬ checkout Ô¶³ÌµÄdevelop·ÖÖ§              

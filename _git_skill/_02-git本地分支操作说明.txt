@@ -28,7 +28,6 @@
 
 
 
-
 20. 关于游离分支
      。用git branch -a查看分支时，出现下面的分支信息
        * (HEAD detached from 4774b6a69)
