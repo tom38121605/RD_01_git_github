@@ -37,7 +37,10 @@
 4. 把本地库关联到远程库，并把本地内容推送到远程
 
    git remote add gitee https://gitee.com/tom38121605/sample_mcu_01_n76e003.git
-   git push -u gitee "master"            //u仅在第一次push时使用，以后就不需要了
+   git push -u gitee master           //u仅在第一次push时使用，以后就不需要了
+
+   git push gitee master     //将本地的master分支推送到origin主机的master分支
+   git push gitee       //将当前分支推送到gitee主机的对应分支
 
    再到gitee网站上查看，就会看到sample_mcu_01_n76e003.git库里，有了一个01.txt文件
 
