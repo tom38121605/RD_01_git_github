@@ -16,7 +16,7 @@
 
 
 1. 创建远程库  test
-   这个在gitee或github上操作，这里以gitee举例  （具体过程很简单，这里略过）
+   这个在gitee或github网站上操作，这里以gitee举例  （具体过程很简单，这里略过）
 
 2. 创建本地库   e:\gitku\test， 添加一个01.txt文件，然后做一次commit
 
