@@ -1,13 +1,15 @@
 
+疑问1：  是否需要先安装git
+
 1. 下载和安装fork
 
    。Fork是免费软件所以直接官网下载：https://git-fork.com/
    。安装一路点Next，不需要登陆，也不用更改、选择任何选项，直到下图点击Finish结束安装   （待验证）
-   。安装时考虑关联目录： c：\work   （待验证）   //这一步也可以在下面的“菜单 File \clone”里面设置
+   。安装时考虑关联目录： c：\workspace   （待验证）   //这一步也可以在下面的“菜单 File \clone”里面设置
 
 1. 安装后也可以修改关联目录
     。菜单\preferences\Gereral\default clone folder
-    。如，设置为  c：\work
+    。如，设置为  c：\workspace
 
 2. 在远程github中创建TEST01库
     。打开网页github.com
@@ -25,7 +27,7 @@
 
    。菜单 File \Accounts  \Repositories ， 下载github里面的工程TEST01  （整个目录下载）
 
-   。附另一种方法： 菜单 File \clone  ， 设置本地的目录， 如：  c：\work  （不推荐
+   。附另一种方法： 菜单 File \clone  ， 设置本地的目录， 如：  c：\workspace  （不推荐
 
 3. 本地库的建立，下载，打开，上传，关闭
      。把本地目录添加并commit到fork里面
@@ -35,9 +37,15 @@
      。把本地目录commit到git库：                点击左下角的commit  （先输入版本说明）
      。把本地目录的工程关闭： 把鼠标放在右上角的+号的左边，隐藏x关闭按钮就会显示出来，点击x关闭工程
 
-4.  。生成SSH KEY  (待完善)
+4.  。生成SSH KEY  
      。fork菜单\config SSH keys\点击左下角的+号，输入email\点击“Generate",即生成public key
-     。打开github网页，在上面找到SSH KEY的地方 (待完善)，复制fork里面的public key 到github，即ok    (待完善)
+     。打开github网页，
+           .右上角点击你的头像，在弹出的侧边栏里面点击 Settings
+          .在 Settings 页面，点击左边的“SSH and GPG keys”，然后点击右边的“New SSH Key”。
+          .复制fork里面的public key 到github，即ok 
+
+4。 同一个用户，多台电脑登陆同一个geihub库
+    。可在每台电脑各生成一个ssh key， 然后依次添加到 github网站上去
 
 
 5. 点击上面的push上传到github服务器
