@@ -17,7 +17,7 @@
   。把远端分支下载到本地  （无本地分支）
 
       方法1：      
-      git checkout -b  dev  origin/dev                                          //在本地创建一个新的分支，并将远程分支的内容下载到本地分支上 
+      git checkout -b  dev  origin/dev                  //在本地创建一个新的分支，并将远程分支的内容下载到本地分支上 
  
      方法2： 在fork上操作
         右键分支名称  -- checkout  -- track

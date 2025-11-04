@@ -25,8 +25,9 @@
    git add 01.txt                               //先拷贝一个01.txt文件到改目录
    git commit -m "first commit"
 
-   git add .                           //添加多个文件到暂存区
-   git add -all                       // 添加多个文件到暂存区
+   git add .                               //添加多个文件到暂存区
+   git add -all                           // 添加多个文件到暂存区
+   git add "temp你好\100.txt"    //添加带子目录的文件，要加引号
 
     git rm --cached .             //取消添加    （待测试验证）
 
@@ -87,6 +88,7 @@
 
 　　git remote               //查看远程库的信息
 　　git remote –v           //查看远程库的详细信息
+      回答：  origin  https://github.com/tom38121605/rd_00_base.git (fetch)   //是什么意思（应相当于gitee）
 
 
 13. commit的说明写错了，在push前重新修改  （@#￥%）
