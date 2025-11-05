@@ -45,6 +45,14 @@
    cat readme.txt
    回复： 222
 
+7. commit的说明写错了，在push前重新修改   
+    git commit --amend -m "新的提交说明"
+
+8. 文件中内容修改后的颜色变化
+     删除一行：  红色
+     增加一行：  绿色
+     修改一行：  用红绿两行显示
+
 
 
 --------------------------------------------- 版本操作 ------------------------------------------------
@@ -92,7 +100,6 @@
    git checkout --01.txt    把本地库或暂存区里面的01.txt恢复出来
 
 
-
    
 --------------------------------------------- 远程库操作 ------------------------------------------------
 
@@ -132,11 +139,17 @@
         git clone https://gitee.com/tom38121605/TEST03  my_TEST03   //库名称改变，保存在指定目录  （待验证）
 
 
+4. 远程库操作
+
+　　git remote               //查看远程库的信息
+　　git remote –v           //查看远程库的详细信息
+      回答：  origin  https://github.com/tom38121605/rd_00_base.git (fetch)   //origin是什么意思（已理解，应相当于github）
 
 
 
 
-============================参考===================================
+
+============================参考====keep===============================
 
 
 疑问1： git每次push时，都需要输入用户名和密码
@@ -161,39 +174,12 @@
    git push gitee       //将当前分支推送到gitee主机的对应分支
 
    再到gitee网站上查看，就会看到sample_mcu_01_n76e003.git库里，有了一个01.txt文件
+ 
 
 
-9. 创建并切换到分支
-
-　　git branch dev              //创建dev分支  （应从当前分支master创建出一个一模一样的另一个分支dev）
-　　git checkout dev           //切换到dev分支
-
-　　git checkout -b dev      //创建dev分支，并切换到dev分支  （相当于把上面2句合并）      
-      git branch                   //查看分支，会列出所有的分支，当前分支前面会添加一个星号
-
-10. cat 01.txt                     //查看01.txt的内容
-
-11. 合并分支
-   
-     git merge dev                    //把dev分支合并到当前分支master上， 删除dev分支信息
-     git merge --no-off dev        //把dev分支合并到当前分支master上， 保留dev分支信息
-
-12. 远程库操作
-
-　　git remote               //查看远程库的信息
-　　git remote –v           //查看远程库的详细信息
-      回答：  origin  https://github.com/tom38121605/rd_00_base.git (fetch)   //是什么意思（应相当于gitee）
-
-
-13. commit的说明写错了，在push前重新修改  （@#￥%）
-
-    git commit --amend -m "新的提交说明"
     git push origin <your-branch-name> --force
 
-14. 文件中内容修改后的颜色变化
-     删除一行：  红色
-     增加一行：  绿色
-     修改一行：  用红绿两行显示
+
 
 
 
