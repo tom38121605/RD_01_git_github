@@ -1,6 +1,144 @@
 
 说明：在git命令行中，拷贝只能用鼠标，不能用ctrl + c
 
+
+--------------------------------- 基础操作 --- 把文件提交到本地库 -----------------------------------------
+
+1. 创建本地库
+
+    。先在d盘根目录，创建一个目录gitku
+    。右键 d:\gitku  --  open git bash  -- 运行git init
+
+   git init          //本地的当前目录，变成一个git库
+                        目录下会多了一个.git的目录，这个目录是Git来跟踪管理版本的
+
+2. 添加新文件，并提交到本地库中
+   git add 01.txt                               //先拷贝一个01.txt文件到该目录 ，添加都暂存区  //没有任何提示，说明添加成功
+   git commit -m "first commit"         //把暂存区的文件，提交到本地库
+
+2. 把子目录中的文件添加到本地库中
+   git add "temp你好\100.txt"    //添加带子目录的文件，要加引号
+
+2. 添加所有文件到本地库中
+   git add .                               //添加多个文件到暂存区
+   git add -all                           // 添加多个文件到暂存区
+
+3. 用git status查看，是否还有文件未提交
+    git status
+    回复： nothing to commit, working tree clean     //说明没有新的改动， 所有的旧改动都已经commit了
+
+3. 修改01.txt，再用git status查看，是否还有文件未提交
+    git status
+    回复：          modified:  01.txt           //说明有新的修改，在01.txt中
+
+4. 用git diff查看01.txt修改了哪些地方
+   git diff 01.txt
+   回复下面两行，说明是把里面的111改成222
+     -111
+     +222
+
+5. 把修改后的文件， 提交到本地库
+   git add 01.txt                               //添加到暂存区
+   git commit -m "2nd commit"         //把暂存区的文件，提交到本地库
+
+6. 用cat查看01.txt文件的内容
+   cat readme.txt
+   回复： 222
+
+
+
+--------------------------------------------- 版本操作 ------------------------------------------------
+
+1. 用git log 看版本历史
+
+   git log
+   回复：
+    ...                        //版本信息
+    2nd commit        //历史版本2
+    ...                      //版本信息
+    first commit       //历史版本1
+
+   git log –pretty=oneline    //只显示提交信息
+   回复：
+    2nd commit       //历史版本2
+    first commit       //历史版本1
+
+2. 用git reflog, 查看以前版本的版本号
+   git reflog
+   回复：
+        f90f40f (HEAD -> master) HEAD@{0}: commit: 2nd commit
+       5e6cbd8 HEAD@{1}: commit (initial): first commit
+
+3. 用git  reset 退回到以前的版本
+
+   git reset  --hard HEAD^               //退回到前一个版本
+   git reset  --hard HEAD^^            //退回到前两个版本
+   git reset  --hard HEAD~100         //退回到前100个版本
+
+3. 通过版本号退回到以前的版本
+   git reset  --hard 5e6cbd8      //退回到5e6cbd8版本
+
+4. 用git checkout 撤销文件01.txt在工作区的修改操作
+
+    情况1； 修改01.txt之前，已把上次的01.txt提交到暂存区 （未提交到本地库）
+               git checkout --01.txt       //撤销后01.txt文件跟暂存区里的01.txt一模一样
+
+    情况2； 修改01.txt之前，已把上次的01.txt提交到暂存区，并已提交到本地库
+               git checkout --01.txt       //撤销后01.txt文件跟本地库里的01.txt一模一样
+
+4. 注意：命令git checkout -- readme.txt 中的 -- 很重要，如果没有 -- 的话，那么命令变成创建分支了
+
+5. 用git checkout 撤销删除01.txt的操作
+   git checkout --01.txt    把本地库或暂存区里面的01.txt恢复出来
+
+
+
+   
+--------------------------------------------- 远程库操作 ------------------------------------------------
+
+说明： 远程库和本地库，都已有现成的master分支
+
+
+
+1. 用git remote和git push把本地库里面的内容，上传到远程库里
+    。先建立本地库（在本地库里面创建几个文件），再建立远程库（空的），再把本地库和远程库关联起来。 
+    。先在d盘根目录建立本地库TEST06
+    。再在gitee上建立同样名称的库TEST06
+
+    。用remote add，把本地库和远程库关联起来
+       git remote add gitee https://gitee.com/tom38121605/test06.git    //相当于在本地TEST03库和远程TEST03库建立了一条航线
+                                                                                                        如果没有任何回复，说明航线创建成功，可开始相互运输了
+   。再把本地库里的文件推送到远程库里。
+       git push  -u gitee master           //把本地库里面的文件，通过航线推送到远程库里  //u仅第一次push时要，以后就不需要了
+
+2.  用git remote和git pull，把远程库的内容，下载到本地库里
+    。先建立远程库（在本地库里面创建几个文件），再建立本地库（空的）
+
+    。先删除原来的远程关联
+       git remote remove gitee
+
+    。用remote add，把本地库和远程库关联起来
+       git remote add origin https://gitee.com/tom38121605/TEST03.git      //相当于在本地TEST03库和远程TEST03库建立了一条航线
+                                                                                                        如果没有任何回复，说明航线创建成功，可开始相互运输了
+    。把远程库里的文件，下载到本地库里
+       git pull origin master                //把远程库里面的文件，通过航线运送到本地库里
+
+
+3.   用git clone 把远程库clone到本地库
+     。先建立远程库（在本地库里面创建几个文件），直接把远程库clone到本地来
+ 
+     。运行下面的git clone指令
+        git clone https://gitee.com/tom38121605/TEST03                     //库名称不变
+        git clone https://gitee.com/tom38121605/TEST03  my_TEST03   //库名称改变，保存在指定目录  （待验证）
+
+
+
+
+
+
+============================参考===================================
+
+
 疑问1： git每次push时，都需要输入用户名和密码
 分析：   克隆一个仓库时，有两种URL可以选择，一种是HTTPS URLs（任何场景下都可以工作，推荐方式），另一种是SSH URLs。
 答：      在push前，运行下面一行，意思是把输入的密码保存在一个文本文件里，以后push就不用再输入了。
@@ -15,31 +153,8 @@
     git config --global credential.helper store                             
 
 
-1. 创建远程库  test
-   这个在gitee或github网站上操作，这里以gitee举例  （具体过程很简单，这里略过）
+ 1. git push
 
-2. 创建本地库   e:\gitku\test， 添加一个01.txt文件，然后做一次commit
-
-   cd  e:\gitku\test
-   git init 
-   git add 01.txt                               //先拷贝一个01.txt文件到改目录
-   git commit -m "first commit"
-
-   git add .                               //添加多个文件到暂存区
-   git add -all                           // 添加多个文件到暂存区
-   git add "temp你好\100.txt"    //添加带子目录的文件，要加引号
-
-    git rm --cached .             //取消添加    （待测试验证）
-
-3. 用git log 和git status，查看以前的操作结果，及当前的状态
-
-    git log
-    git status
-
-
-4. 把本地库关联到远程库，并把本地内容推送到远程
-
-   git remote add gitee https://gitee.com/tom38121605/sample_mcu_01_n76e003.git
    git push -u gitee master           //u仅在第一次push时使用，以后就不需要了
 
    git push gitee master     //将本地的master分支推送到origin主机的master分支
@@ -47,27 +162,6 @@
 
    再到gitee网站上查看，就会看到sample_mcu_01_n76e003.git库里，有了一个01.txt文件
 
-5. 用git diff，来查看文件的修改
-
-    git diff 01.txt
-
-6. 退回到以前的版本
-
-   git reset  --hard HEAD~1    //退回到上一个版本
-   git reset  --hard 版本号       //退回到指定版本
-   git reflog                           //看本地库里面的版本号 （版本号只取了前面的7位）  //实际只输入前面4-6位就可以了
-
-7. git checkout  --01.txt   调出暂存库或特定版本库里面的的内容到工作区  ，“--” 一定要加，没有的话变成创建分支了
-
-    git checkout --01.txt     //有下面两层意思
-        01.txt自动修改后，还没有放到暂存区，使用 撤销修改就回到和版本库一模一样的状态。
-        另外一种是01.txt已经放入暂存区了，接着又作了修改，撤销修改就回到添加暂存区后的状态。
-
-
-8. git clone，从远程库clone到本地         （先跳过）
-
-   git clone    [仓库地址]                    //保存在当前目录  
-   git clone [仓库地址] [本地目录名]    //保存在指定目录  
 
 9. 创建并切换到分支
 
