@@ -1,0 +1,15 @@
+
+
+1. git下载网址， 打开网址后，点击选择windows   （最好通过vpn下载）
+   https://git-scm.com/downloads
+
+2. fork的下载网址
+   www.fork.dev
+
+
+
+
+
+
+
+

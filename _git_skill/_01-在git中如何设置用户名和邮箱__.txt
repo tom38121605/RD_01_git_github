@@ -1,0 +1,14 @@
+
+
+1. 参考指令  （待验证，谨慎使用）
+   git  config  --global user.name  "zhao"
+   git  config  --global user.email   "13511188899@139.com"
+
+2. 如何区分设置的是gitee的用户名，还是github的用户名?
+
+
+
+
+
+
+
