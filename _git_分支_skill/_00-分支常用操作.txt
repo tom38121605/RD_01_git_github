@@ -3,22 +3,130 @@
 
 
    
---------------------------------------------- 分支常用操作 ------------------------------------------------
+--------------------------------------------- 本地分支操作 ------------------------------------------------
  
-9. 创建并切换到分支
-
+1. 创建分支
 　　git branch dev              //创建dev分支  （应从当前分支master创建出一个一模一样的另一个分支dev）
+
+1. 切换到分支
 　　git checkout dev           //切换到dev分支
 
-　　git checkout -b dev      //创建dev分支，并切换到dev分支  （相当于把上面2句合并）      
-      git branch                   //查看分支，会列出所有的分支，当前分支前面会添加一个星号
- 
+1. 创建并切换到分支
+　　git checkout -b dev      //创建dev分支，并切换到dev分支  （相当于把上面2句合并）    
 
-11. 合并分支
-   
-     git merge dev                    //把dev分支合并到当前分支master上， 删除dev分支信息
-     git merge --no-off dev        //把dev分支合并到当前分支master上， 保留dev分支信息
+
+  2. 查看本地分支
+      git branch                   //查看本地分支，会列出所有的分支，当前分支前面会添加一个星号
  
+  2. 查看远程分支
+     git branch -r         
+                                                                    
+  2. 本地和远程分支
+     git branch -a         
+
+3. 合并分支   
+     git merge dev                  //快進合并，因dev分支是从master分支上创建的，把master分支直接快进到dev分支的最新修改。
+                                              在master分支里看不到dev分支的历史切换记录
+     git merge --no-ff dev      //把dev分支合并到当前分支master上， 在master分支里保留dev的历史切换记录
+ 
+4. 删除本地分支
+   git branch -d dev       //删除本地的dev分支
+
+
+
+
+--------------------------------------------- 远程分支操作 ------------------------------------------------
+ 
+ 1. 查看远程分支
+     git branch -r     
+     git branch -a    
+
+2. 在本地的master分支推送到远程的master分支
+       git push  gitee master:master     //完整写法   
+       git push  gitee master               //简略写法      
+
+2. 把本地的devr分支推送到远程的master分支
+      git push  gitee dev:master         //完整写法  
+      git push  gitee master               //简略写法   
+
+
+
+
+
+
+======================参考========================================
+
+
+
+  git push github  develop       //把本地的develop推送到远程github
+  git push github  --all             //把本地的所有分支推送到远程github
+
+  在github设置默认分支： github网址 -- setting  -- 左边点选branch  -- 中间defaut下面 -- 右边 双向箭头  -- 下拉列表选择默认分支
+
+  git branch -D develop              //删除本地分支
+  git push github -d develop       //删除远端分支   （也可在github网址上删除）
+
+
+----------------远程到本地-------------------------
+
+
+
+  。把远端分支下载到本地  （无本地分支）
+
+      方法1：      
+      git checkout -b  dev  origin/dev                  //在本地创建一个新的分支，并将远程分支的内容下载到本地分支上 
+ 
+     方法2： 在fork上操作
+        右键分支名称  -- checkout  -- track
+
+  。把远端分支pull到本地 （已有本地分支）
+
+    方法1：
+       git checkout  dev
+       git pull origin  dev
+
+    方法2：
+       git pull origin remote_branch_name:local_branch_name        //这个命令会将远程分支的内容直接合并到本地分支中。如本地分支不存在，则会创建一个新的本地分支
+
+
+
+----------------本地到远程-------------------------
+
+    远程没有分支
+    git push origin test:test              // 提交本地test分支作为远程的test分支
+
+     远程已有分支
+    git push origin feature-branch   推送 feature-branch 到远程仓库    //待验证
+
+----------------其他-------------------------
+
+    git push origin test:master         // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
+    git push origin :test              // 刚提交到远程的test将被删除，但是本地还会保存的，不用担心
+
+
+
+=====================待测试整理=========================
+
+2）分支(branch)操作相关命令
+ 
+合并分支：$ git merge [name] ----将名称为[name]的分支与当前分支合并
+创建远程分支(本地分支push到远程)：$ git push origin [name]
+删除远程分支：$ git push origin :heads/[name]
+
+$ git push origin test:master         // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
+$ git push origin test:test              // 提交本地test分支作为远程的test分支
+
+$ git push origin :test              // 刚提交到远程的test将被删除，但是本地还会保存的，不用担心
+
+
+
+ 5. 推送本地分支到远程仓库
+如果你想将本地新创建的分支推送到远程仓库，可以使用 git push 命令
+
+git push origin feature-branch   推送 feature-branch 到远程仓库 
+
+
+
 
 
 

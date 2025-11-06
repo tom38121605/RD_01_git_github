@@ -53,6 +53,29 @@
      增加一行：  绿色
      修改一行：  用红绿两行显示
 
+9. 用dir指令，查看本地库里面的文件和目录
+    dir
+
+10. 用git rm 删除文件
+    git rm 01.txt
+
+
+--------下面关于git stash的指令非常垃圾（远离）--------------
+
+11. 用git stash把主工作台上的工具材料类（新作的修改），搬到备用工作台上
+   git stash
+11. 把备用工作台上的工具材料搬到主工作台上， 也删除备用工作台上的工具材料
+    git stash pop 
+11. 直接删除备用工作台上的工具材料
+    git stash drop
+11. 备用工作台上的工具材料
+     git stash list 
+11. 把备用工作台上的工具材料搬到主工作台上， 不删除备用工作台上的工具材料
+      git stash apply  
+
+
+
+
 
 
 --------------------------------------------- 版本操作 ------------------------------------------------
@@ -115,7 +138,7 @@
     。用remote add，把本地库和远程库关联起来
        git remote add gitee https://gitee.com/tom38121605/test06.git    //相当于在本地TEST03库和远程TEST03库建立了一条航线
                                                                                                         如果没有任何回复，说明航线创建成功，可开始相互运输了
-   。再把本地库里的文件推送到远程库里。
+   。再把本地库里的文件推送到远程库里
        git push  -u gitee master           //把本地库里面的文件，通过航线推送到远程库里  //u仅第一次push时要，以后就不需要了
 
 2.  用git remote和git pull，把远程库的内容，下载到本地库里
@@ -145,9 +168,29 @@
 　　git remote –v           //查看远程库的详细信息
       回答：  origin  https://github.com/tom38121605/rd_00_base.git (fetch)   //origin是什么意思（已理解，应相当于github）
 
+5. 先删除原来的远程关联
+       git remote remove gitee
+
+6. 查看远程库的信息
+　　git remote 查看远程库的信息
+      回复:  gitee
+
+　　git remote –v 查看远程库的详细信息
+      回复:   gitee   https://gitee.com/tom38121605/test06.git (fetch)
+               gitee   https://gitee.com/tom38121605/test06.git (push)
+
+6. 在本地的master分支推送到远程的master分支
+       git push  gitee master:master     //完整写法   
+       git push  gitee master               //简略写法      
+
+
+ 6. 把本地的devr分支推送到远程的master分支
+      git push  gitee dev:master         //完整写法  
+      git push  gitee master               //简略写法   
 
 
 
+   
 
 ============================参考====keep===============================
 
