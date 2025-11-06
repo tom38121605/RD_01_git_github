@@ -14,14 +14,15 @@
 1. 创建并切换到分支
 　　git checkout -b dev      //创建dev分支，并切换到dev分支  （相当于把上面2句合并）    
 
-
-  2. 查看本地分支
+2. 查看本地分支
       git branch                   //查看本地分支，会列出所有的分支，当前分支前面会添加一个星号
- 
-  2. 查看远程分支
-     git branch -r         
-                                                                    
-  2. 本地和远程分支
+
+2. 直接看命令行的最后面括号里的分支  
+      GS@Lenovo-PC MINGW64 /e/GIT-REPO/TEST04 (develop)   //括号里的分支 develop是当前分支
+
+2. 查看远程分支
+     git branch -r                                                                             
+2. 本地和远程分支
      git branch -a         
 
 3. 合并分支   
@@ -29,11 +30,56 @@
                                               在master分支里看不到dev分支的历史切换记录
      git merge --no-ff dev      //把dev分支合并到当前分支master上， 在master分支里保留dev的历史切换记录
  
-4. 删除本地分支
+4. 重命名分支
+   git branch -m  develop  dev2     //把develop 改名为dev2
+
+5. 删除本地分支
    git branch -d dev       //删除本地的dev分支  //d选项只能删除已经参与了合并的分支
    git branch -D dev       //删除本地的dev分支
 
   
+
+
+
+20. 关于游离分支
+     。用git branch -a查看分支时，出现下面的分支信息
+       * (HEAD detached from 4774b6a69)
+
+     。当使用 git checkout < branch_name> 切换分支时，HEAD 会移动到指定分支
+     。如果使用的是 git checkout < commit id>，即切换到指定的某一次提交，HEAD 就会处于 detached 状态（游离状态）。
+
+20. 游离分支的弊端
+     。弊端就是：在这个基础上的提交会新开一个匿名分支！
+
+20. 解决方法
+
+     方法一：  （当不考虑游离分支就是dev1分支的最新commit时，可用下面的方法解决）
+         。在fork上，点击一个分支，如dev1，然后checkout
+
+     方法二：  创建临时分支temp，保存游离分支的修改；再把temp 合并到dev1分支
+         。从游离分支的commit处，创建temp分支
+         。check out 要用到的dev1分支
+         。合并temp分支到dev1  
+         。删除temp分支
+
+      具体解决操作：
+      git branch -v 查看当前领先多少 
+      4449a91 指向的是 dev1 的最后一次提交
+      新建一个 temp 分支，把当前提交的代码放到整个分支 
+      checkout 出要回到的那个分支，这里是 dev1 
+      然后 merge 刚才创建的临时分支，把那些代码拿回来 
+      git status 查看下合并结果，有冲突就解决
+      合并 OK 后就提交到远端 
+      删除刚才创建的临时分支  
+
+      git branch temp
+      git checkout dev1
+      git merge temp
+      git branch -d temp     
+
+
+
+
 
 --------------------------------------------- 远程分支操作 ------------------------------------------------
  
