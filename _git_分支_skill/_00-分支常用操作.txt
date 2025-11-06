@@ -30,10 +30,10 @@
      git merge --no-ff dev      //把dev分支合并到当前分支master上， 在master分支里保留dev的历史切换记录
  
 4. 删除本地分支
-   git branch -d dev       //删除本地的dev分支
+   git branch -d dev       //删除本地的dev分支  //d选项只能删除已经参与了合并的分支
+   git branch -D dev       //删除本地的dev分支
 
-
-
+  
 
 --------------------------------------------- 远程分支操作 ------------------------------------------------
  
@@ -42,6 +42,9 @@
      git branch -a    
 
 2. 在本地的master分支推送到远程的master分支
+
+   格式： git  push   远程仓库名  本地分支名 ：  远程分支名
+
        git push  gitee master:master     //完整写法   
        git push  gitee master               //简略写法      
 
@@ -49,37 +52,29 @@
       git push  gitee dev:master         //完整写法  
       git push  gitee master               //简略写法   
 
+2. 推送到远程分支后，建立关联
+    git push -u origin  master    //以后可以直接git push，而不用指定远程和分支
 
+2.强制推送  （谨慎使用， 会删除其他同事的修改）
+   git push --force
 
+2. 推送所有分支到远程
+   git push --all
 
+2. 向远程推送标签
+   git push --tags
 
-
-======================参考========================================
-
-
-
-  git push github  develop       //把本地的develop推送到远程github
-  git push github  --all             //把本地的所有分支推送到远程github
-
-  在github设置默认分支： github网址 -- setting  -- 左边点选branch  -- 中间defaut下面 -- 右边 双向箭头  -- 下拉列表选择默认分支
-
-  git branch -D develop              //删除本地分支
-  git push github -d develop       //删除远端分支   （也可在github网址上删除）
-
-
-----------------远程到本地-------------------------
-
-
+3.  删除远端分支   （也可在github网址上删除）
+    git push github -d develop       
 
   。把远端分支下载到本地  （无本地分支）
-
       方法1：      
       git checkout -b  dev  origin/dev                  //在本地创建一个新的分支，并将远程分支的内容下载到本地分支上 
  
      方法2： 在fork上操作
         右键分支名称  -- checkout  -- track
 
-  。把远端分支pull到本地 （已有本地分支）
+4.  把远端分支pull到本地 （已有本地分支）
 
     方法1：
        git checkout  dev
@@ -88,87 +83,30 @@
     方法2：
        git pull origin remote_branch_name:local_branch_name        //这个命令会将远程分支的内容直接合并到本地分支中。如本地分支不存在，则会创建一个新的本地分支
 
-
-
-----------------本地到远程-------------------------
-
-    远程没有分支
-    git push origin test:test              // 提交本地test分支作为远程的test分支
-
-     远程已有分支
-    git push origin feature-branch   推送 feature-branch 到远程仓库    //待验证
-
-----------------其他-------------------------
-
-    git push origin test:master         // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
-    git push origin :test              // 刚提交到远程的test将被删除，但是本地还会保存的，不用担心
+5.  在github设置默认分支： github网址 -- setting  -- 左边点选branch  -- 中间defaut下面 -- 右边 双向箭头  -- 下拉列表选择默认分支
 
 
 
-=====================待测试整理=========================
-
-2）分支(branch)操作相关命令
- 
-合并分支：$ git merge [name] ----将名称为[name]的分支与当前分支合并
-创建远程分支(本地分支push到远程)：$ git push origin [name]
-删除远程分支：$ git push origin :heads/[name]
-
-$ git push origin test:master         // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
-$ git push origin test:test              // 提交本地test分支作为远程的test分支
-
-$ git push origin :test              // 刚提交到远程的test将被删除，但是本地还会保存的，不用担心
+=========================其他=============================
 
 
-
- 5. 推送本地分支到远程仓库
-如果你想将本地新创建的分支推送到远程仓库，可以使用 git push 命令
-
-git push origin feature-branch   推送 feature-branch 到远程仓库 
-
-
-
-
-
-
-
-
-=========================待整理==============================
-
-
-1) 远程仓库相关命令
-检出仓库：$ git clone git://github.com/xx/xx.git
-查看远程仓库：$ git remote -v
-添加远程仓库：$ git remote add [name] [url]
+git push origin test:master         // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
+git push origin :test                // 刚提交到远程的test将被删除，但是本地还会保存的，不用担心
 删除远程仓库：$ git remote rm [name]
 修改远程仓库：$ git remote set-url --push[name][newUrl]
 拉取远程仓库：$ git pull [remoteName] [localBranchName]
 推送远程仓库：$ git push [remoteName] [localBranchName]
- 
-2）分支(branch)操作相关命令
-查看本地分支：$ git branch
-查看远程分支：$ git branch -r
-创建本地分支：$ git branch [name] ----注意新分支创建后不会自动切换为当前分支
-切换分支：$ git checkout [name]
-创建新分支并立即切换到新分支：$ git checkout -b [name]
-删除分支：$ git branch -d [name] ---- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项
-合并分支：$ git merge [name] ----将名称为[name]的分支与当前分支合并
-创建远程分支(本地分支push到远程)：$ git push origin [name]
 删除远程分支：$ git push origin :heads/[name]
 
-$ git push origin test:master         // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
-$ git push origin test:test              // 提交本地test分支作为远程的test分支
 
-$ git push origin :test              // 刚提交到远程的test将被删除，但是本地还会保存的，不用担心
-
-3）版本(tag)操作相关命令
 查看版本：$ git tag
 创建版本：$ git tag [name]
 删除版本：$ git tag -d [name]
 查看远程版本：$ git tag -r
 创建远程版本(本地版本push到远程)：$ git push origin [name]
 删除远程版本：$ git push origin :refs/tags/[name]
- 
-4) 子模块(submodule)相关操作命令
+
+
 添加子模块：$ git submodule add [url] [path]
 如：$ git submodule add git://github.com/soberh/ui-libs.git src/main/webapp/ui-libs
 初始化子模块：$ git submodule init ----只在首次检出仓库时运行一次就行
@@ -180,12 +118,5 @@ $ git push origin :test              // 刚提交到远程的test将被删除，但是本地还会
 4) 手动删除子模块残留的目录
 
 
-
-=========================待整理2==============================
-
-
-
-
-
-
+ 
 
