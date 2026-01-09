@@ -82,14 +82,14 @@
 
 1. 用git log 看版本历史
 
-   git log
+   git log                                               （已验证）
    回复：
     ...                        //版本信息
     2nd commit        //历史版本2
     ...                      //版本信息
     first commit       //历史版本1
 
-   git log –pretty=oneline    //只显示提交信息
+   git log -–pretty=oneline    //只显示提交信息  （已验证）
    回复：
     2nd commit       //历史版本2
     first commit       //历史版本1
