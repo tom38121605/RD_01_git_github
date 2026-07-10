@@ -136,7 +136,7 @@
     。再在gitee上建立同样名称的库TEST06
 
     。用remote add，把本地库和远程库关联起来
-       git remote add gitee https://gitee.com/tom38121605/test06.git    //相当于在本地TEST03库和远程TEST03库建立了一条航线
+       git remote add gitee https://gitee.com/tom38121605/test06.git    //相当于在本地TEST06库和远程TEST06库建立了一条航线
                                                                                                         如果没有任何回复，说明航线创建成功，可开始相互运输了
    。再把本地库里的文件推送到远程库里
        git push  -u gitee master           //把本地库里面的文件，通过航线推送到远程库里  //u仅第一次push时要，以后就不需要了
