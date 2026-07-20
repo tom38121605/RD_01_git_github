@@ -1,0 +1,56 @@
+
+这是本地仓库核心配置，只作用于当前这个 Git 项目，不影响全局 Git
+
+[core]  //"核心"配置                              
+	repositoryformatversion = 0   //定义了该仓库的目录结构、文件格式和内部数据存储格式的版本号  //相当于excel的xls  -- 忽略跳过
+	filemode = false，            //关闭文件权限追踪                                            //windows不支持该功能  -- 忽略跳过 
+
+	bare = false                  //普通仓库，有工作目录，可编辑代码。                          //默认值不变-- 忽略跳过
+	logallrefupdates = true       //Git 记录所有引用的更新日志，支持 git reflog 找回丢失提交    //默认值不变-- 忽略跳过
+
+	symlinks = false              //Git 不支持或禁用符号链接（Symbolic Links）                  //默认值不变-- 忽略跳过
+	ignorecase = true             //忽略文件名大小写                                            //easy
+
+
+[submodule] //子模块配置
+	active = .                   //这个仓库里所有的子模块，都是激活状态，都需要拉取和更新
+                                       每次执行 git submodule update --init 时，Git 就会根据这个配置，自动把所有子模块都拉下来，不需要你一个个指定。
+
+
+[remote "origin"]  //定义了一个名为 origin 的远程仓库
+	url = https://github.com/Ommo-Technologies/ommo_nrf.git      //远程仓库地址
+                                                                       通过 HTTPS 协议关联到 GitHub 仓库 ommo_nrf，执行 git push / git pull 都会访问这个地址
+
+	fetch = +refs/heads/*:refs/remotes/origin/*                  //refs/heads/*：远端仓库所有本地分支（main/master、dev 等都在这里）
+                                                                       refs/remotes/origin/*：本地仓库存放远端分支快照的位置（本地查看远端分支用 git branch -r 就是读取这里）
+                                                                       +：强制覆盖本地缓存的远端分支记录，哪怕本地远端缓存和线上不一致也直接更新
+                                                                       refs/heads/main	你电脑上 main 分支的代码。
+                                                                       refs/remotes/origin/main	你上次 git fetch 时，GitHub 上 main 分支的样子（快照）
+
+
+[branch "master"]  针对本地 master 分支的专属绑定配置
+
+	remote = origin                                             //本地 master 分支关联的远程仓库是别名 origin。
+                                                                      执行 git pull / git push 不加参数时，默认操作这个远端。
+
+	merge = refs/heads/master                                   //本地 master ↔ 远端 origin/master
+                                                                      git pull = 拉取 origin 的 master 并合并到本地 master
+                                                                      git push = 推送本地 master 到 origin 的 master
+
+
+[submodule "ommo_build_common"]                                             //你的仓库里嵌入了另一个 Git 仓库(子模块)，名字叫 ommo_build_common
+
+	url = https://github.com/Ommo-Technologies/ommo_build_common.git    //指定这个子模块对应的远程仓库地址，拉取子模块代码时会访问该 GitHub 仓库
+
+
+
+[submodule "stm32_common"]                                                 //你的仓库里嵌入了另一个 Git 仓库(子模块)，名字叫 stm32_common
+	url = git@github.com:Ommo-Technologies/stm32_common.git            //远程仓库地址,这个用的是 SSH 协议，不是 HTTPS
+                                                                             你本地必须配置好 SSH 密钥（~/.ssh/id_rsa 和 ~/.ssh/id_rsa.pub），并且把公钥添加到你的 GitHub 账户里
+
+
+[branch "develop"]              //同上面的[branch "master"] 
+	remote = origin
+	merge = refs/heads/develop
+
+
