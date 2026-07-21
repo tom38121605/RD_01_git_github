@@ -4,12 +4,24 @@
 分析： 现在的库是ommo_nrf， 目录在C:\workspace\ommo_nrf，
           查里面的这个目录： C:\workspace\ommo_nrf\nRF5_SDK_17.1.0_ddde560\examples\ommo\ommo_adc_sampler_generic\13668-analog_adc_siu_3v3-standard
 
-解决：  git log --all --oneline -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-standard
+解决：  右键 -- C:\workspace\ommo_nrf  -- bash
+            
+          方法1： 只显示说明
+           git log --all --oneline -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-standard
 
-结果： HP@HP-PC MINGW64 /c/workspace/ommo_nrf (develop)
-         $ git log --all --oneline -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-standard
-         92399efe6 Added firmware for 14525D, and updated firmware for 14525C.  Moved trace.* to stm32_common so 。。。。。。
-         92399efe6 Added firmware for 14525D, and updated firmware for 14525C.  Moved trace.* to stm32_common so  。。。。。。defined in ommo_trace_defs.h.
+          方法2：只显示日期
+          git log --all --date=short -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-standard
+
+          方法3： 显示日期和说明
+          git log --all --pretty="%h %ad %s" --date=short -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-
+
+                   
+
+      方法3结果： HP@HP-PC MINGW64 /c/workspace/ommo_nrf (develop)
+         $ git log --all --pretty="%h %ad %s" --date=short -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-standard
+         92399efe6 2026-07-09 Added firmware for 14525D, and updated firmware for 14525C.  Moved trace.* to stm32_common so that it can be shared with ST projects; 
+                                           trace locations are now defined in ommo_trace_defs.h.
+         5ab510306 2026-04-02 Increase stack size to reflect current usage (max 10404 bytes for 12541 standard Release build)
 
 
 问： 如何看当前分支的版本
