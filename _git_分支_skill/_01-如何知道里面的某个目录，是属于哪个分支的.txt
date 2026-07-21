@@ -1,10 +1,10 @@
 
-问：从github上clone了一个库下来，如何知道里面的某个目录，是属于哪个分支的
+1.  从github上clone了一个库下来，如何知道里面的某个目录，是属于哪个分支的
 
-分析： 现在的库是ommo_nrf， 目录在C:\workspace\ommo_nrf，
-          查里面的这个目录： C:\workspace\ommo_nrf\nRF5_SDK_17.1.0_ddde560\examples\ommo\ommo_adc_sampler_generic\13668-analog_adc_siu_3v3-standard
+    分析： 现在的库是ommo_nrf， 目录在C:\workspace\ommo_nrf，
+             查里面的这个目录： C:\workspace\ommo_nrf\nRF5_SDK_17.1.0_ddde560\examples\ommo\ommo_adc_sampler_generic\13668-analog_adc_siu_3v3-standard
 
-解决：  右键 -- C:\workspace\ommo_nrf  -- bash
+    解决： 右键 -- C:\workspace\ommo_nrf  -- bash
             
           方法1： 只显示说明
            git log --all --oneline -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-standard
@@ -16,7 +16,6 @@
           git log --all --pretty="%h %ad %s" --date=short -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-
 
                    
-
       方法3结果： HP@HP-PC MINGW64 /c/workspace/ommo_nrf (develop)
          $ git log --all --pretty="%h %ad %s" --date=short -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-standard
          92399efe6 2026-07-09 Added firmware for 14525D, and updated firmware for 14525C.  Moved trace.* to stm32_common so that it can be shared with ST projects; 
@@ -24,7 +23,17 @@
          5ab510306 2026-04-02 Increase stack size to reflect current usage (max 10404 bytes for 12541 standard Release build)
 
 
-问： 如何看当前分支的版本
-答： git log --oneline -1
+2.  如何看当前分支的版本
+   答： git log --oneline -1
          $ git log --oneline -1
          01cba3b67 (HEAD -> develop) Merge branch 'feature/13555_update' into develop
+
+3.  看当前的version no.
+    答： $ git describe --dirty
+
+           v7018-201-g01cba3b67-dirty
+
+
+
+
+
