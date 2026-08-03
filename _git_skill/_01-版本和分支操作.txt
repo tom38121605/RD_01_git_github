@@ -1,0 +1,107 @@
+
+
+
+--------------------------------------------- 版本基础操作 ------------------------------------------------
+
+1. 用git log 看版本历史
+
+   git log                                               （已验证）
+   回复：
+    ...                        //版本信息
+    2nd commit        //历史版本2
+    ...                      //版本信息
+    first commit       //历史版本1
+
+   git log -–pretty=oneline    //只显示提交信息  （已验证）
+   回复：
+    2nd commit       //历史版本2
+    first commit       //历史版本1
+
+2. 用git reflog, 查看以前版本的版本号
+   git reflog
+   回复：
+        f90f40f (HEAD -> master) HEAD@{0}: commit: 2nd commit
+       5e6cbd8 HEAD@{1}: commit (initial): first commit
+
+3. 用git  reset 退回到以前的版本
+
+   git reset  --hard HEAD^               //退回到前一个版本
+   git reset  --hard HEAD^^            //退回到前两个版本
+   git reset  --hard HEAD~100         //退回到前100个版本
+
+3. 通过版本号退回到以前的版本
+   git reset  --hard 5e6cbd8      //退回到5e6cbd8版本
+
+4. 用git checkout 撤销文件01.txt在工作区的修改操作
+
+    情况1； 修改01.txt之前，已把上次的01.txt提交到暂存区 （未提交到本地库）
+               git checkout --01.txt       //撤销后01.txt文件跟暂存区里的01.txt一模一样
+
+    情况2； 修改01.txt之前，已把上次的01.txt提交到暂存区，并已提交到本地库
+               git checkout --01.txt       //撤销后01.txt文件跟本地库里的01.txt一模一样
+
+4. 注意：命令git checkout -- readme.txt 中的 -- 很重要，如果没有 -- 的话，那么命令变成创建分支了
+
+5. 用git checkout 撤销删除01.txt的操作
+   git checkout --01.txt    把本地库或暂存区里面的01.txt恢复出来
+
+
+
+
+--------------------------------------------- 版本高级操作 ------------------------------------------------
+
+
+1. git log --all                          //显示所有版本信息
+1. git log -1                            //显示最后一个版本信息
+
+2.  git log --all --oneline           //每个版本只显示一行，只能包含说明，没有日期
+
+3.  git log --all --date=short     //每个版本都显示日期
+
+4. git log --all  --pretty="%h %ad %s" --date=short     //显示所有版本的说明和日期
+    %h    --  7位短ID
+    %ad  --  提交日期
+    %s    --  只拿第一行文字
+
+
+
+
+21.  从github上clone了一个库下来，如何知道里面的某个目录，是属于哪个分支的
+
+    分析： 现在的库是ommo_nrf， 目录在C:\workspace\ommo_nrf，
+             查里面的这个目录： C:\workspace\ommo_nrf\nRF5_SDK_17.1.0_ddde560\examples\ommo\ommo_adc_sampler_generic\13668-analog_adc_siu_3v3-standard
+
+    解决： 右键 -- C:\workspace\ommo_nrf  -- bash
+            
+          方法1： 只显示说明
+           git log --all --oneline -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-standard
+
+          方法2：只显示日期
+          git log --all --date=short -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-standard
+
+          方法3： 显示日期和说明
+          git log --all --pretty="%h %ad %s" --date=short -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-
+
+                   
+      方法3结果： HP@HP-PC MINGW64 /c/workspace/ommo_nrf (develop)
+         $ git log --all --pretty="%h %ad %s" --date=short -- nRF5_SDK_17.1.0_ddde560/examples/ommo/ommo_adc_sampler_generic/13668-analog_adc_siu_3v3-standard
+         92399efe6 2026-07-09 Added firmware for 14525D, and updated firmware for 14525C.  Moved trace.* to stm32_common so that it can be shared with ST projects; 
+                                           trace locations are now defined in ommo_trace_defs.h.
+         5ab510306 2026-04-02 Increase stack size to reflect current usage (max 10404 bytes for 12541 standard Release build)
+
+
+22.  如何看当前分支的版本
+     答： git log --oneline -1
+         $ git log --oneline -1
+         01cba3b67 (HEAD -> develop) Merge branch 'feature/13555_update' into develop
+
+23.  看当前的version no.
+     答： $ git describe --dirty                               //   dirty -- 表示有未提交的修改   
+               v7018-201-g01cba3b67-dirty
+
+
+
+
+
+
+

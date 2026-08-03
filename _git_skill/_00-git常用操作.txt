@@ -74,55 +74,6 @@
       git stash apply  
 
 
-
-
-
-
---------------------------------------------- 版本操作 ------------------------------------------------
-
-1. 用git log 看版本历史
-
-   git log                                               （已验证）
-   回复：
-    ...                        //版本信息
-    2nd commit        //历史版本2
-    ...                      //版本信息
-    first commit       //历史版本1
-
-   git log -–pretty=oneline    //只显示提交信息  （已验证）
-   回复：
-    2nd commit       //历史版本2
-    first commit       //历史版本1
-
-2. 用git reflog, 查看以前版本的版本号
-   git reflog
-   回复：
-        f90f40f (HEAD -> master) HEAD@{0}: commit: 2nd commit
-       5e6cbd8 HEAD@{1}: commit (initial): first commit
-
-3. 用git  reset 退回到以前的版本
-
-   git reset  --hard HEAD^               //退回到前一个版本
-   git reset  --hard HEAD^^            //退回到前两个版本
-   git reset  --hard HEAD~100         //退回到前100个版本
-
-3. 通过版本号退回到以前的版本
-   git reset  --hard 5e6cbd8      //退回到5e6cbd8版本
-
-4. 用git checkout 撤销文件01.txt在工作区的修改操作
-
-    情况1； 修改01.txt之前，已把上次的01.txt提交到暂存区 （未提交到本地库）
-               git checkout --01.txt       //撤销后01.txt文件跟暂存区里的01.txt一模一样
-
-    情况2； 修改01.txt之前，已把上次的01.txt提交到暂存区，并已提交到本地库
-               git checkout --01.txt       //撤销后01.txt文件跟本地库里的01.txt一模一样
-
-4. 注意：命令git checkout -- readme.txt 中的 -- 很重要，如果没有 -- 的话，那么命令变成创建分支了
-
-5. 用git checkout 撤销删除01.txt的操作
-   git checkout --01.txt    把本地库或暂存区里面的01.txt恢复出来
-
-
    
 --------------------------------------------- 远程库操作 ------------------------------------------------
 
