@@ -1,0 +1,39 @@
+
+1.   准备clone 库“RD_02_mcu_TI_periphera”到本地电脑时，点击菜单 File \Accounts， 出现一片空白
+
+   分析： 关联的Accounts账号，需要点击下面的＋号，重新用已注册的账号登陆github网站，重新進行关联
+
+   解决方法1：  不用Accounts账号，直接用github上库的网址進行clone
+        1）。 在浏览器上登录github，找到库“RD_02_mcu_TI_periphera的网址 “https://github.com/tom38121605/RD_02_mcu_TI_peripheral”
+        2）。  File \clone， 拷贝上面的网址到“Repository Url"
+        3）。点击clone， ok
+
+   解决方法1：  不用Accounts账号，直接用github上库的网址進行clone
+
+      1)。菜单 File \Accounts  \Accounts  
+         。在跳出界面中的左下角，点击+号
+         。在跳出界面中，点击"github"，点击login
+         。输入github的的邮箱账号（或username），登录github网站  （会跳出qq浏览器 ）
+         。输入邮箱账号（或username），输入口令，登录成功后，跳出“Authorize Fork"的界面， 输入手机上Authorize的验证数字
+         。ok，邮箱账号已添加到fork的电脑app中
+
+     2)。菜单 File \Accounts  \Repositories ， 下载github里面的工程"RD_02_mcu_TI_periphera” （整个目录下载）
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
